@@ -3,7 +3,7 @@ pip3tool:
 	docker push docker.pkg.github.com/agilesyndrome/syndromeos-pythonapps/pytool-$(TOOL_NAME):$(TOOL_VERSION)
 
 piptool:
-	docker build -t docker.pkg.github.com/agilesyndrome/syndromeos-pythonapps/pytool-$(TOOL_NAME):$(TOOL_VERSION) --build-arg toolVersion=$(TOOL_VERSION) --build-arg toolName=$(TOOL_NAME) -f Dockerfile.piptool .
+	docker build -t docker.pkg.github.com/agilesyndrome/syndromeos-pythonapps/pytool-$(TOOL_NAME):$(TOOL_VERSION) --build-arg toolVersion=$(TOOL_VERSION) --build-arg toolName=$(TOOL_NAME) --build-arg "toolDeps=pysqlite2" -f Dockerfile.piptool .
 	docker push docker.pkg.github.com/agilesyndrome/syndromeos-pythonapps/pytool-$(TOOL_NAME):$(TOOL_VERSION)
 
 
