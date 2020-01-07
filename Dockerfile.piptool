@@ -2,7 +2,10 @@ FROM docker.pkg.github.com/agilesyndrome/syndromeos-python/python:2.7.17
 
 ARG toolName
 ARG toolVersion
+ARG toolDeps=psyqlite2
 ENV TOOL_NAME=${toolName}
 ENV TOOL_VERSION=${toolVersion}
+ENV TOOL_DEPS=${toolDeps}
 
-RUN pip install ${TOOL_NAME}==${TOOL_VERSION}
+RUN pip install ${TOOL_NAME}==${TOOL_VERSION} \
+ && pip install ${TOOL_DEPS}
