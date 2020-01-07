@@ -1,0 +1,26 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:    
+      - master
+  pull_request:
+
+jobs:
+  apps:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: azure/docker-login@v1
+      with:
+        login-server: 'docker.pgk.github.com' # default: index.docker.io
+        username: ${{ secrets.GITHUB_BUILDER }}
+        password: ${{ secrets.GITHUB_BUILDER_TOKEN }}
+    - name: Jupyter Notebook v1.2.4
+      run: make TOOL_NAME=jupyterlab TOOL_VERSION=1.2.4 piptool
+    - name: AWSCLI v1.16.310
+      run: make TOOL_NAME=awscli TOOL_VERSION=1.16.310 piptool
+    - name: AWSCLI v1.11.159 
+      run: make TOOL_NAME=awscli TOOL_VERSION=1.11.159 piptool
+    - name: AWSCLI v2.0.0dev
+      run: make AWSCLI_VERSION=2.0.0dev -C python_apps aws2cli 
