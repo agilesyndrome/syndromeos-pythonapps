@@ -16,8 +16,8 @@ jobs:
         login-server: 'docker.pkg.github.com' # default: index.docker.io
         username: ${{ secrets.GITHUB_BUILDER }}
         password: ${{ secrets.GITHUB_BUILDER_TOKEN }}
-    - name: Jupyter Notebook v1.2.4
-      run: make TOOL_NAME=jupyterlab TOOL_VERSION=1.2.4 piptool
+    - name: Jupyter Notebook v0.33.12
+      run: make TOOL_NAME=jupyterlab TOOL_VERSION=0.33.12 piptool
     - name: AWSCLI v1.16.310
       run: make TOOL_NAME=awscli TOOL_VERSION=1.16.310 piptool
     - name: AWSCLI v1.11.159 
