@@ -5,4 +5,6 @@ ARG toolVersion
 ENV TOOL_NAME=${toolName}
 ENV TOOL_VERSION=${toolVersion}
 
-RUN pip3 install ${TOOL_NAME}==${TOOL_VERSION}
+RUN apt-get update
+ && pip3 install jupyterlab==${TOOL_VERSION}
+
