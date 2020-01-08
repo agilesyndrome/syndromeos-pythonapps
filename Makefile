@@ -1,4 +1,4 @@
-PKG_BASE="docker.pgk.github.com/agilesyndrome/syndromeos-pythonapps"
+PKG_BASE="docker.pkg.github.com/agilesyndrome/syndromeos-pythonapps"
 pip3tool:
 	docker build -t docker.pkg.github.com/agilesyndrome/syndromeos-pythonapps/pytool-$(TOOL_NAME):$(TOOL_VERSION) --build-arg toolVersion=$(TOOL_VERSION) --build-arg toolName=$(TOOL_NAME) -f Dockerfile.pip3tool .
 	docker push docker.pkg.github.com/agilesyndrome/syndromeos-pythonapps/pytool-$(TOOL_NAME):$(TOOL_VERSION)
